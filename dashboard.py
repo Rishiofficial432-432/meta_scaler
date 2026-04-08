@@ -116,7 +116,7 @@ def reset_env():
 
 # --- SIDEBAR NAVIGATION ---
 with st.sidebar:
-    st.markdown(f"<h2 style='color: {THEME['accent']};'>TRAFFIC AI</h2>", unsafe_allow_html=True)
+    st.markdown(f"""<h2 style='color: {THEME["accent"]};'>TRAFFIC AI</h2>""", unsafe_allow_html=True)
     st.markdown("<p style='font-size: 0.8rem; color: #475569;'>ENTERPRISE v2.5.0 // JET BLACK</p>", unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     
@@ -140,7 +140,7 @@ if st.session_state.current_page == "Dashboard":
     with h_col1:
         st.title("Operational Dashboard")
     with h_col2:
-        st.markdown(f"<div style='text-align: right; color: {THEME['success']}; font-weight: 600;'>● 4 NODES ONLINE</div>", unsafe_allow_html=True)
+        st.markdown(f"""<div style='text-align: right; color: {THEME["success"]}; font-weight: 600;'>● 4 NODES ONLINE</div>""", unsafe_allow_html=True)
         st.markdown(f"<div style='text-align: right; color: #475569; font-size: 0.7rem;'>ID: {st.session_state.env._state.episode_id[:20]}</div>", unsafe_allow_html=True)
 
     st.markdown("<hr style='border: 0.5px solid #111; margin: 20px 0;'>", unsafe_allow_html=True)
