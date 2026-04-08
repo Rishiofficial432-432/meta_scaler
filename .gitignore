@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Artifacts
+implementation_plan.md
+task.md
+walkthrough.md
+git_push_plan.md
+git_task.md
+.system_generated/
+*.png
+*.webp
