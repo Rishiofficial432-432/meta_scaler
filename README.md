@@ -8,13 +8,13 @@ app_port: 7860
 pinned: true
 ---
 
-# 🚦 Traffic AI v2.0 Dashboard
+# 🚦 Traffic AI v2.1.0 Enterprise
 
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A premium, interactive reinforcement learning dashboard for a 4-way traffic light controller. Built with **OpenEnv**, **FastAPI**, and **Streamlit**, this project demonstrates a high-performance AI system with a sleek, "Stitch-inspired" design.
+A professional, enterprise-grade reinforcement learning dashboard for a 4-way traffic light controller. Built with **OpenEnv**, **FastAPI**, and **Streamlit**, this project features high-density telemetry, a deep-slate professional theme, and robust audit logging.
 
 ![Dashboard Preview](https://raw.githubusercontent.com/Rishiofficial432-432/meta_scaler/main/assets/dashboard_preview.png)
 
