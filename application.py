@@ -14,25 +14,18 @@ def get_shared_environment() -> TrafficLightEnv:
     return shared_environment
 
 
-openenv_app = FastAPI(
-    title="OpenEnv Traffic Light API",
-    description="OpenEnv routes for the traffic light controller environment.",
-)
-
-openenv_server = HTTPEnvServer(
-    env=get_shared_environment,
-    action_cls=TrafficLightAction,
-    observation_cls=TrafficLightObservation,
-)
-openenv_server.register_routes(openenv_app)
-
 app = FastAPI(
     title="Traffic Light Controller System",
     description="A beginner-friendly FastAPI + OpenEnv reinforcement learning demo.",
 )
 
-# Mounting here makes the OpenEnv routes available at /openenv/reset and /openenv/step.
-app.mount("/openenv", openenv_app)
+# Register /reset and /step directly on the root app so the checker can reach them.
+openenv_server = HTTPEnvServer(
+    env=get_shared_environment,
+    action_cls=TrafficLightAction,
+    observation_cls=TrafficLightObservation,
+)
+openenv_server.register_routes(app)
 
 
 @app.get("/")
@@ -40,7 +33,7 @@ def read_root() -> dict:
     """Small helper endpoint for anyone opening the server in a browser."""
     return {
         "message": "Traffic Light Controller System is running.",
-        "openenv_reset": "/openenv/reset",
-        "openenv_step": "/openenv/step",
-        "openenv_docs": "/openenv/docs",
+        "openenv_reset": "/reset",
+        "openenv_step": "/step",
+        "openenv_docs": "/docs",
     }
