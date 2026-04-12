@@ -54,7 +54,7 @@ class TrafficLightEnv(
             current_green="north",
         )
 
-        return self._build_observation(reward=0.0)
+        return self._build_observation(reward=0.5)  # neutral starting score
 
     def step(
         self,
@@ -91,11 +91,11 @@ class TrafficLightEnv(
 
         new_total = self._total_cars()
         if new_total < previous_total:
-            reward = 1.0
+            reward = 0.99  # traffic improved — strictly less than 1.0
         elif new_total > previous_total:
-            reward = 0.0
+            reward = 0.01  # traffic worsened — strictly greater than 0.0
         else:
-            reward = 0.5
+            reward = 0.5   # no change
 
         return self._build_observation(reward=reward)
 
