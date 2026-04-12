@@ -13,10 +13,11 @@ from typing import List, Optional
 import requests
 from openai import OpenAI
 
-# ── Configuration ────────────────────────────────────────────────────────────
-API_BASE_URL = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
-MODEL_NAME   = os.getenv("MODEL_NAME",   "Qwen/Qwen2.5-72B-Instruct")
-HF_TOKEN     = os.getenv("HF_TOKEN",     "")
+# ── Configuration (matches required checklist exactly) ───────────────────────
+API_BASE_URL     = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
+MODEL_NAME       = os.getenv("MODEL_NAME",   "Qwen/Qwen2.5-72B-Instruct")
+HF_TOKEN         = os.getenv("HF_TOKEN")          # no default — must be injected
+LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME")  # optional: used with from_docker_image()
 
 # The running OpenEnv server (this same container on HF Spaces)
 ENV_BASE_URL = os.getenv("ENV_BASE_URL", "http://127.0.0.1:7860")
@@ -98,7 +99,7 @@ def choose_action(client: OpenAI, observation: dict) -> str:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN or "no-key")
+    client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN)
 
     rewards: List[float] = []
     steps_taken = 0
