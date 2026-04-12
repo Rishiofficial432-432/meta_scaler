@@ -1,3 +1,19 @@
 name: meta_scaler
 version: "1.0.0"
 description: A 4-road traffic light controller OpenEnv environment. An RL agent controls which road gets the green light each step, earning rewards based on whether total waiting cars decrease.
+tasks:
+  - id: "traffic_light_easy"
+    name: "Traffic Light Control - Easy"
+    description: "Basic traffic light control with low traffic."
+    difficulty: "easy"
+    grader: "tasks.easy_grader:grade"
+  - id: "traffic_light_medium"
+    name: "Traffic Light Control - Medium"
+    description: "Traffic light control with moderate traffic."
+    difficulty: "medium"
+    grader: "tasks.medium_grader:grade"
+  - id: "traffic_light_hard"
+    name: "Traffic Light Control - Hard"
+    description: "Traffic light control with heavy traffic."
+    difficulty: "hard"
+    grader: "tasks.hard_grader:grade"
