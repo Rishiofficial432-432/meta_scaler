@@ -1,0 +1,3 @@
+name: meta_scaler
+version: "1.0.0"
+description: A 4-road traffic light controller OpenEnv environment. An RL agent controls which road gets the green light each step, earning rewards based on whether total waiting cars decrease.
